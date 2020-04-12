@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Settings</name>
+    </assembly>
+    <members>
+        <member name="T:SettingsLib.Settings">
+            <summary>
+            Класс для работы с файлом настроек какой-либо системы.
+            </summary>
+        </member>
+        <member name="P:SettingsLib.Settings.Autosave">
+            <summary>
+            Автоматически сохранять значения при использовании методов <see cref="M:SettingsLib.Settings.SetDefaults(System.String)"/> и <see cref="M:SettingsLib.Settings.SetValue(System.String,System.Object)"/>. 
+            В противном случае, следует сохранять значения методом <see cref="M:SettingsLib.Settings.Save"/>
+            </summary>
+        </member>
+        <member name="P:SettingsLib.Settings.ThrowNotFoundException">
+            <summary>
+            Задает, будет ли вызываться необрабатываемое исключение, если искомый ключ не будет найден в файле настроек. 
+            В противном случае будет возвращать false.
+            Метод GetNumericValue будет возвращать -1 при исключении.
+            По умолчанию: false.
+            </summary>
+        </member>
+        <member name="P:SettingsLib.Settings.FileName">
+            <summary>
+            Возвращает имя текущего файла настроек.
+            </summary>
+        </member>
+        <member name="P:SettingsLib.Settings.About">
+            <summary>
+            Информация о библиотеке
+            </summary>
+        </member>
+        <member name="P:SettingsLib.Settings.AppendNewSettings">
+            <summary>
+            Задает, будет ли пара [ключ, значение] добавляться в файл настроек при использовании метода SetValue,
+            если такого ключа нет в файле.
+            По умолчанию: true.
+            </summary>
+        </member>
+        <member name="P:SettingsLib.Settings.KeyValueSeparator">
+            <summary>
+            Задает разделитель между ключом и значением.
+            По умолчанию: ":".
+            </summary>
+        </member>
+        <member name="P:SettingsLib.Settings.KeyValuePairSeparator">
+            <summary>
+            Задает разделитель между парами ключей и значений.
+            По умолчанию: перенос строки ("\n").
+            </summary>
+        </member>
+        <member name="P:SettingsLib.Settings.IsReady">
+            <summary>
+            Отображает готовность к работе. 
+            При появлении критических ошибок в библиотеке, вернет false и библиотека перестанет работать.
+            В таком случае рекомендуется заново создать экземпляр класса.
+            </summary>
+        </member>
+        <member name="M:SettingsLib.Settings.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            Имя файла по умолчанию: Settings.ini.
+            Файл создается при отсутствии.
+            Разделитель ключа и значения по умолчанию: двоеточие (":").
+            Разделитель пар по умолчанию: перенос строки ("\n").
+            </summary>
+        </member>
+        <member name="M:SettingsLib.Settings.#ctor(System.String)">
+            <summary>
+            Конструктор с параметром.
+            Файл создается при отсутствии.
+            Разделитель ключа и значения по умолчанию: двоеточие (":").
+            Разделитель пар по умолчанию: перенос строки ("\n").
+            </summary>
+            <param name="FileName">Имя файла настроек.</param>
+        </member>
+        <member name="M:SettingsLib.Settings.#ctor(System.String,System.Boolean)">
+            <summary>
+            Конструктор с параметрами.
+            Разделитель ключа и значения по умолчанию: двоеточие (":").
+            Разделитель пар по умолчанию: перенос строки ("\n").
+            </summary>
+            <param name="FileName">Имя файла настроек.</param>
+            <param name="CreateIfNotExists">Создавать ли файл настроек при его отсутствии.</param>
+        </member>
+        <member name="M:SettingsLib.Settings.#ctor(System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            Конструктор с параметрами.
+            </summary>
+            <param name="FileName">Имя файла настроек.</param>
+            <param name="CreateIfNotExists">Создавать ли файл настроек при его отсутствии.</param>
+            <param name="KeyValueSeparator">Разделитель ключа и значения.</param>
+            <param name="KeyValuePairSeparator">Разделитель пар.</param>
+        </member>
+        <member name="M:SettingsLib.Settings.SetDefaults(System.String)">
+            <summary>
+            Записывает в файл ключи настроек и их значения. 
+            Если такой ключ (с любым значением) уже находится в файле, он не будет изменен.
+            Пример: SetDefaults("Name:Bob\nAge:18");
+            </summary>
+            <param name="DefaultValues">Строка с парами [ключ[разделитель]значение].
+            Разделителем между ключом и значением выступает свойство KeyValueSeparator.
+            Разделителем между парами выступает свойство KeyValuePairSeparator.</param>
+        </member>
+        <member name="M:SettingsLib.Settings.SetDefaults(System.String[])">
+            <summary>
+            Записывает в файл ключи настроек и их значения. 
+            Если такой ключ (с любым значением) уже находится в файле, он не будет изменен.
+            Пример: SetDefaults(new string[] {"Name:Bob", "Age:18"});
+            </summary>
+            <param name="DefaultPairs">Массив пар в виде [ключ[разделитель]значение].
+            Разделителем между ключом и значением выступает свойство KeyValueSeparator.</param>
+        </member>
+        <member name="M:SettingsLib.Settings.SetDefaults(System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Записывает в файл ключи настроек и их значения.
+            Если такой ключ (с любым значением) уже находится в файле, он не будет изменен.
+            </summary>
+            <param name="DefaultPairs">Массив пар ключей и значений.</param>
+        </member>
+        <member name="M:SettingsLib.Settings.GetValueObject(System.String)">
+            <summary>
+            Получить значение по имени ключа.
+            </summary>
+            <param name="Key">Имя искомого ключа.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SettingsLib.Settings.GetValue(System.String)">
+            <summary>
+            Получить значение по имени ключа в виде строки.
+            </summary>
+            <param name="Key">Имя искомого ключа.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SettingsLib.Settings.GetNumericValue(System.String)">
+            <summary>
+            Получить значение по имени ключа в виде целочисленного значения.
+            В случае неудачи преобразования строки в int, будет вызвано исключение.
+            </summary>
+            <param name="Key">Имя искомого ключа.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SettingsLib.Settings.GetNumericValue(System.String,System.Int32)">
+            <summary>
+            Получить значение по имени ключа в виде целочисленного значения.
+            В случае неудачи преобразования строки в int, будет вызвано исключение.
+            </summary>
+            <param name="Key">Имя искомого ключа.</param>
+            <param name="IfNotFoundValue">Значение, возвращаемое при отсутствии ключа. Значение true свойства ThrowNotFoundException игнорирует этот параметр.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SettingsLib.Settings.SetValue(System.String,System.Object)">
+            <summary>
+            Установить значение ключа.
+            </summary>
+            <param name="Key">Имя ключа.</param>
+            <param name="Value">Значение ключа.</param>
+            <returns>Возвращает, успешно ли установлено значение.</returns>
+        </member>
+        <member name="M:SettingsLib.Settings.Save">
+            <summary>
+            Сохранить изменения в файле настроек. 
+            Срабатывает автоматически при значении true свойства Autosave.
+            </summary>
+        </member>
+        <member name="M:SettingsLib.Settings.SetKeyValuePairsFromText(System.String)">
+            <summary>
+            Заполняем словарь KeyValuePairs парами из заланного текста.
+            </summary>
+            <param name="Text"></param>
+        </member>
+    </members>
+</doc>

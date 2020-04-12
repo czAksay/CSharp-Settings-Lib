@@ -1,0 +1,11 @@
+C:\Users\HobaY\source\repos\SettingsAp2\Test\bin\Debug\Test.exe.config
+C:\Users\HobaY\source\repos\SettingsAp2\Test\bin\Debug\Test.exe
+C:\Users\HobaY\source\repos\SettingsAp2\Test\bin\Debug\Test.pdb
+C:\Users\HobaY\source\repos\SettingsAp2\Test\obj\Debug\Test.csprojAssemblyReference.cache
+C:\Users\HobaY\source\repos\SettingsAp2\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\HobaY\source\repos\SettingsAp2\Test\obj\Debug\Test.exe
+C:\Users\HobaY\source\repos\SettingsAp2\Test\obj\Debug\Test.pdb
+C:\Users\HobaY\source\repos\SettingsAp2\Test\bin\Debug\Settings.dll
+C:\Users\HobaY\source\repos\SettingsAp2\Test\bin\Debug\Settings.pdb
+C:\Users\HobaY\source\repos\SettingsAp2\Test\obj\Debug\Test.csproj.CopyComplete
+C:\Users\HobaY\source\repos\SettingsAp2\Test\bin\Debug\Settings.xml
